@@ -210,4 +210,27 @@ db.Books.updateMany({}, {$set: {available: true}})
 
 Find All Books That Are Available And Published After 1950
 
- db.Books.find({available:true},{ published_year:1950})"#MongoDB-libraryDB" 
+ db.Books.find({available:true},{ published_year:1950})
+
+
+
+ Find Authors whose names contain "George" (Using $regex)
+
+
+first lets all the Authors , for that type in this :
+db.Authors.find()
+
+
+now that you have that then the next thing is very simple just type in :
+db.Authors.find({name: {$regex : 'George'}})
+
+
+Increment the published year of "1869" by 1 (Using $inc)
+
+to update the year by one you have to type in the following :
+ db.Books.updateOne({title:'War and Peace'}, {$inc: {published_year:1}})
+
+ make sure you specify which document that you want to update by saying this :
+{title:'War and Peace'}
+
+if you leave the first object open then it will update all documents by 1 
